@@ -4,7 +4,7 @@ from slacker import Slacker
 import time
 import random
 
-with open("C:/Users/clari/Desktop/python/smartstore/news_headline/token1.txt", "r") as f:
+with open("token1.txt", "r") as f:
     token = f.read()
     
 slack = Slacker(token)
