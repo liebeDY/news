@@ -4,13 +4,14 @@ from slacker import Slacker
 import time
 import random
 
-with open("token1.txt", "r") as f:
+with open("C:/Users/clari/Desktop/python/smartstore/news_headline/token1.txt", "r") as f:
     token = f.read()
     
 slack = Slacker(token)
 
 with open("headers.txt", "r", encoding="utf-8") as f:
     header = f.read()
+
 headers = {
     "User-Agent" : f"{header}"
 }
@@ -20,11 +21,11 @@ now = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 with open("newsUrl.txt", "r", encoding="utf-8") as f:
     url = f.read()
 
-with open("worldPageList.txt", "r", encoding="utf-8") as f:
+with open("economyPageList.txt", "r", encoding="utf-8") as f:
     pageText_list = f.readline()
     page_list  = pageText_list.split(',')
 
-with open("worldCategorieList.txt", "r", encoding="utf-8") as f:
+with open("economyCategorieList.txt", "r", encoding="utf-8") as f:
     text_list = f.readline()
     categorie_list  = text_list.split(',')
 
@@ -33,7 +34,7 @@ for page, categorie in zip(page_list, categorie_list)  :
 
     index = 1
     params = {
-        'sid1' : '104',
+        'sid1' : '101',
         'sid2' : f'{page}'
     }
 
@@ -58,7 +59,7 @@ for page, categorie in zip(page_list, categorie_list)  :
             msg_list.append(" ")
             index += 1
     dateMsg = f"현재 시간 {now}"
-    chanerName = f"#세계_0{idx}_{categorie}"
+    chanerName = f"#경제_0{idx}_{categorie}"
     msg = " \n ".join(msg_list)
     print(chanerName)
     print(msg)
